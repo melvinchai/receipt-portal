@@ -30,8 +30,19 @@
 </head>
 <body>
   <iframe 
-    src="https://script.google.com/macros/s/AKfycbw6Ud2GOZwPeB9GtrBLIz135nXZBoS1zhk1nX_NKpsm3_Z4PoTJWyGI-hRZWilIu0PfaQ/exec" 
+    id="appFrame"
     allow="camera; microphone; geolocation">
   </iframe>
+
+  <script>
+    // Base Google Apps Script Web App URL
+    const baseUrl = "https://script.google.com/macros/s/AKfycbw6Ud2GOZwPeB9GtrBLIz135nXZBoS1zhk1nX_NKpsm3_Z4PoTJWyGI-hRZWilIu0PfaQ/exec";
+    
+    // Grab current URL parameters (e.g. ?user=USR-EAFC2)
+    const currentParams = window.location.search;
+    
+    // Dynamically set iframe src with parameters attached
+    document.getElementById('appFrame').src = baseUrl + currentParams;
+  </script>
 </body>
 </html>
